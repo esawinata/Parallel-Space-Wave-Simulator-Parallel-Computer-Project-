@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parallel Space Wave Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <p class="eyebrow">Evaluasi 3 - IFB 206 Komputasi Paralel</p>
+    <h1>Parallel Space Wave Simulator</h1>
+    <p class="subtitle">Simulasi game top-down shooter menggunakan C# dengan perbandingan serial vs parallel processing.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Deskripsi Project</h2>
+      <p>
+        Parallel Space Wave Simulator adalah prototype game sederhana bertema space shooter.
+        Program menampilkan player, enemy, dan projectile sebagai visualisasi, lalu membandingkan
+        performa update enemy dalam mode serial dan paralel.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Konsep Komputasi Paralel</h2>
+      <p>
+        Konsep yang digunakan adalah <strong>Data Parallelism</strong>. Banyak enemy dalam game memiliki data
+        yang dapat diproses secara independen, seperti posisi, HP, defense, dan status hidup/mati.
+        Karena update satu enemy tidak bergantung pada enemy lain, proses tersebut dapat diparalelkan
+        menggunakan <code>Parallel.For</code> pada C#.
+      </p>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Mode Serial</h2>
+        <p>Enemy diproses satu per satu menggunakan <code>for-loop</code>.</p>
+      </div>
+      <div class="card">
+        <h2>Mode Paralel</h2>
+        <p>Enemy dibagi ke beberapa thread CPU menggunakan <code>Parallel.For</code>.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Alur Program</h2>
+      <ol>
+        <li>Program memuat sprite Player, Enemy, dan Projectile dari folder Assets.</li>
+        <li>Game menampilkan visual top-down shooter sederhana.</li>
+        <li>User menekan tombol <strong>B</strong> untuk menjalankan benchmark.</li>
+        <li>Program menjalankan simulasi update enemy secara serial.</li>
+        <li>Program menjalankan simulasi update enemy secara paralel.</li>
+        <li>Program menampilkan waktu eksekusi dan speedup.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>Cara Menjalankan</h2>
+      <pre><code>dotnet run</code></pre>
+      <p>Kontrol: WASD/Arrow untuk bergerak, tahan Space untuk menembak terus-menerus, B untuk benchmark serial vs parallel.</p>
+    </section>
+
+    <section class="card">
+      <h2>Struktur Folder</h2>
+      <pre><code>Parrarel-Game/
+├── Assets/
+│   ├── Player.png
+│   ├── Enemy.png
+│   └── Projectile.png
+├── Program.cs
+├── ParallelGame.csproj
+├── README.md
+├── index.html
+└── style.css</code></pre>
+    </section>
+
+    <section class="card">
+      <h2>Kesimpulan</h2>
+      <p>
+        Project ini menunjukkan bahwa proses update banyak enemy dalam game dapat dipercepat dengan
+        komputasi paralel, selama data setiap enemy dapat diproses secara independen.
+      </p>
+    </section>
+  <section><h2>Runtime Mode</h2><p>Tekan <strong>Z</strong> untuk Serial Runtime Mode dan <strong>X</strong> untuk Parallel Runtime Mode. Overlay game menampilkan FPS, frame time, runtime simulation time, jumlah enemy runtime, serta hasil benchmark Serial Time, Parallel Time, dan Speedup.</p></section></main>
+</body>
+</html>

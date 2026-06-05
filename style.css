@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #eef6ff;
+  background: radial-gradient(circle at top, #142a62, #050713 55%, #000);
+  line-height: 1.6;
+}
+
+header {
+  padding: 64px 24px 42px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: #73e8ff;
+  font-size: 13px;
+}
+
+h1 {
+  margin: 8px 0;
+  font-size: clamp(34px, 6vw, 64px);
+}
+
+.subtitle {
+  max-width: 760px;
+  margin: 0 auto;
+  color: #c9d7f5;
+}
+
+main {
+  width: min(1000px, calc(100% - 32px));
+  margin: 32px auto 72px;
+}
+
+.card {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.grid .card {
+  margin-bottom: 0;
+}
+
+h2 {
+  margin-top: 0;
+  color: #79eaff;
+}
+
+code, pre {
+  font-family: Consolas, monospace;
+}
+
+pre {
+  overflow-x: auto;
+  background: rgba(0,0,0,.55);
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 16px;
+  border-radius: 12px;
+}
+
+code {
+  color: #b4ffdf;
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
